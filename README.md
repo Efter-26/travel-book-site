@@ -32,7 +32,7 @@
 
 ## 🏗 Project Architecture
 
-
+```
 travel-booking-frontend/
 ├── src/
 │   ├── app/                    # Next.js App Router
@@ -71,7 +71,7 @@ travel-booking-frontend/
 ├── public/                    # Static files
 └── package.json              # Dependency management
 
-
+```
 ## ✨ Core Features
 
 ### 🔐 *Authentication System*
