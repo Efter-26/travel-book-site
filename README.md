@@ -32,7 +32,7 @@
 
 ## 🏗 Project Architecture
 
-
+```
 travel-booking-frontend/
 ├── src/
 │   ├── app/                    # Next.js App Router
@@ -71,7 +71,7 @@ travel-booking-frontend/
 ├── public/                    # Static files
 └── package.json              # Dependency management
 
-
+```
 ## ✨ Core Features
 
 ### 🔐 *Authentication System*
@@ -115,7 +115,7 @@ travel-booking-frontend/
 - *Reading Progress* - Scroll-based progress bar
 - *Comment System* - User reviews
 
-### 🛒 *Shopping Cart System*
+### 🛒 *Booking Cart System*
 - *Cart Management* - Add, Remove, Update
 - *Local Storage* - Data persistence on page reload
 - *Multi-item* - Hotels, flights, packages
@@ -255,12 +255,6 @@ npm run build
 vercel --prod
 
 
-### *Netlify*
-bash
-npm run build
-netlify deploy --prod
-
-
 ## 🤝 Contribution
 
 1. *Fork* repository
@@ -271,12 +265,6 @@ netlify deploy --prod
 ## 📄 License
 
 MIT License - See [LICENSE](LICENSE) file
-
-## 📞 Contact
-
-- *Email*: support@travelbook.com
-- *Website*: https://travelbook.com
-- *Documentation*: https://docs.travelbook.com
 
 ---
 
