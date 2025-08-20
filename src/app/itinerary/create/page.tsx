@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -26,7 +26,7 @@ interface Day {
   activities: Activity[];
 }
 
-export default function CreateItineraryPage() {
+ function CreateItineraryContent() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -866,5 +866,13 @@ export default function CreateItineraryPage() {
         )}
       </div>
     </Layout>
+  );
+}
+
+export default function CreateItineraryPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CreateItineraryContent />
+    </Suspense>
   );
 }

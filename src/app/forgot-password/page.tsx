@@ -41,10 +41,10 @@ export default function ForgotPasswordPage() {
               <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Check Your Email</h2>
               <p className="text-gray-600 mb-8">
-                We've sent a password reset link to <strong>{email}</strong>
+                We&apos;ve sent a password reset link to <strong>{email}</strong>
               </p>
               <p className="text-sm text-gray-500 mb-8">
-                If you don't see the email, check your spam folder. The link will expire in 1 hour.
+                If you don&apos;t see the email, check your spam folder. The link will expire in 1 hour.
               </p>
               
               <div className="space-y-4">
@@ -60,7 +60,7 @@ export default function ForgotPasswordPage() {
                   onClick={() => setIsSubmitted(false)}
                   className="block w-full text-blue-600 hover:text-blue-700 text-sm font-medium"
                 >
-                  Didn't receive the email? Try again
+                  Didn&apos;t receive the email? Try again
                 </button>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function ForgotPasswordPage() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900">Reset your password</h2>
             <p className="mt-2 text-sm text-gray-600">
-              Enter your email address and we'll send you a link to reset your password.
+              Enter your email address and we&apos;ll send you a link to reset your password.
             </p>
           </div>
         </div>
