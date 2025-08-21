@@ -10,6 +10,7 @@ import { fetchFlights } from '@/store/slices/flightSlice';
 import { fetchPackages } from '@/store/slices/packageSlice';
 import Layout from '@/components/Layout';
 import { Search, MapPin, Calendar, Users, Star, ArrowRight, Plane, Hotel, Package, Heart, Clock, Award } from 'lucide-react';
+import { fetchBlogPosts } from '@/store/slices/blogSlice';
 
 interface BlogPost {
   id: string;
@@ -30,14 +31,9 @@ export default function Home() {
   const { popularDestinations, isLoading: destinationsLoading } = useSelector(
     (state: RootState) => state.destination
   );
-  const { hotels } = useSelector((state: RootState) => state.hotel);
-  const { flights } = useSelector((state: RootState) => state.flight);
-  const { packages } = useSelector((state: RootState) => state.package);
+  const { posts, isLoading:blogLoading } = useSelector((state: RootState) => state.blog);
 
-  // Blog state
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [blogLoading, setBlogLoading] = useState(true);
-
+  console.log({posts})
   // Search state
   const [searchType, setSearchType] = useState<'hotels' | 'flights' | 'packages'>('hotels');
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,69 +48,8 @@ export default function Home() {
     dispatch(fetchHotels({ page: 1, limit: 6 }));
     dispatch(fetchFlights({ page: 1, limit: 6 }));
     dispatch(fetchPackages({ page: 1, limit: 6 }));
-    
-    // Fetch blog posts directly from API
-    const fetchBlogPosts = async () => {
-      try {
-        setBlogLoading(true);
-        const response = await fetch('https://travelbook-backend-server.onrender./blog?page=&limit=1&status=PUBLISHED', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        if (data.success && data.data) {
-          setBlogPosts(data.data.slice(0, 4)); // Take first 4 posts
-        }
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
-        // Set fallback blog posts when backend is not available
-        setBlogPosts([
-          {
-            id: '1',
-            title: 'Top 10 Must-Visit Destinations in 2024',
-            excerpt: 'Discover the most trending travel destinations that should be on your bucket list this year.',
-            featuredImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
-            publishedAt: new Date().toISOString(),
-            slug: 'top-10-destinations-2024'
-          },
-          {
-            id: '2',
-            title: 'Budget Travel Tips: How to Explore More for Less',
-            excerpt: 'Learn the best strategies to travel on a budget without compromising on experiences.',
-            featuredImage: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop',
-            publishedAt: new Date().toISOString(),
-            slug: 'budget-travel-tips'
-          },
-          {
-            id: '3',
-            title: 'The Ultimate Guide to Solo Travel',
-            excerpt: 'Everything you need to know about planning and enjoying your solo adventure.',
-            featuredImage: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&h=300&fit=crop',
-            publishedAt: new Date().toISOString(),
-            slug: 'ultimate-solo-travel-guide'
-          },
-          {
-            id: '4',
-            title: 'Best Time to Book Flights for Maximum Savings',
-            excerpt: 'Timing is everything when it comes to finding the best flight deals.',
-            featuredImage: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=300&fit=crop',
-            publishedAt: new Date().toISOString(),
-            slug: 'best-time-book-flights'
-          }
-        ]);
-      } finally {
-        setBlogLoading(false);
-      }
-    };
-    
-    fetchBlogPosts();
+    dispatch(fetchBlogPosts({ page: 1, limit: 6 }));
+  
   }, [dispatch]);
 
   const handleSearch = () => {
@@ -427,7 +362,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {blogPosts.map((post, index) => (
+                {posts.map((post, index) => (
                   <div
                     key={post.id || `post-${index}`}
                     className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
