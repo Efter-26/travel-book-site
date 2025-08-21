@@ -173,7 +173,7 @@ export default function RegisterPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                        errors.firstName ? 'border-red-300' : 'border-gray-300'
+                        errors.firstName ? 'border-red-300' : 'border-gray-300 text-gray-700'
                       }`}
                       placeholder="Enter your first name"
                     />
@@ -203,7 +203,7 @@ export default function RegisterPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                        errors.lastName ? 'border-red-300' : 'border-gray-300'
+                        errors.lastName ? 'border-red-300' : 'border-gray-300 text-gray-700'
                       }`}
                       placeholder="Enter your last name"
                     />
@@ -235,7 +235,7 @@ export default function RegisterPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                      errors.email ? 'border-red-300' : 'border-gray-300'
+                      errors.email ? 'border-red-300' : 'border-gray-300 text-gray-700'
                     }`}
                     placeholder="Enter your email"
                   />
@@ -266,7 +266,7 @@ export default function RegisterPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                      errors.phone ? 'border-red-300' : 'border-gray-300'
+                      errors.phone ? 'border-red-300' : 'border-gray-300 text-gray-700'
                     }`}
                     placeholder="Enter your phone number"
                   />
@@ -297,7 +297,7 @@ export default function RegisterPage() {
                     value={formData.password}
                     onChange={handleChange}
                     className={`appearance-none block w-full pl-10 pr-10 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                      errors.password ? 'border-red-300' : 'border-gray-300'
+                      errors.password ? 'border-red-300' : 'border-gray-300 text-gray-700'
                     }`}
                     placeholder="Create a password"
                   />
@@ -339,7 +339,7 @@ export default function RegisterPage() {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     className={`appearance-none block w-full pl-10 pr-10 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
-                      errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
+                      errors.confirmPassword ? 'border-red-300' : 'border-gray-300 text-gray-700'
                     }`}
                     placeholder="Confirm your password"
                   />

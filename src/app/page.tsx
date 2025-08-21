@@ -57,7 +57,7 @@ export default function Home() {
     const fetchBlogPosts = async () => {
       try {
         setBlogLoading(true);
-        const response = await fetch('http://localhost:4000/blog?page=1&limit=10&status=PUBLISHED', {
+        const response = await fetch('https://travelbook-backend-server.onrender./blog?page=&limit=1&status=PUBLISHED', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
